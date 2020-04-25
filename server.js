@@ -106,7 +106,7 @@ app.patch('/api/bookmark/:id', jsonParser, (req, res) => {
     res.status( 202 ).json(post);
 });
 app.listen(3000);
-// Base URL : http://localhost:8080/
+// Base URL : http://localhost:3000/
 // GET endpoint : http://localhost:3000/api/bookmarks
 // GET endpoint : http://localhost:3000/api/bookmark?title=value
 // POST endpoint : http://localhost:3000/api/bookmarks and send in raw JSON the post
