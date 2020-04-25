@@ -87,7 +87,7 @@ app.patch('/api/bookmark/:id', jsonParser, (req, res) => {
             return x;
         }
     });
-    if(!bookmark){
+    if(!post){
         res.statusMessage = "No bookmark for ID requested";
         return res.status( 404 ).end();
     }
@@ -110,5 +110,5 @@ app.listen(3000);
 // GET endpoint : http://localhost:3000/api/bookmarks
 // GET endpoint : http://localhost:3000/api/bookmark?title=value
 // POST endpoint : http://localhost:3000/api/bookmarks and send in raw JSON the post
-// DELETE endpoint : http://localhost:3000/api/bookmark/:id 
-// PATCH endpoint: http://localhost:3000/api/bookmark/:id 
+// DELETE endpoint : http://localhost:3000/api/bookmark/id 
+// PATCH endpoint: http://localhost:3000/api/bookmark/id 
