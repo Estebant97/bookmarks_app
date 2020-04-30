@@ -18,10 +18,11 @@
   },
   "homepage": "https://github.com/Estebant97/bookmarks_app#readme",
   "dependencies": {
-    "uuid": "^7.0.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "morgan": "^1.10.0"
+    "mongoose": "^5.9.10",
+    "morgan": "^1.10.0",
+    "uuid": "^7.0.3"
   },
   "devDependencies": {}
 }
