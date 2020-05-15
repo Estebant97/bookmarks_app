@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarks</title>
+  </head>
+
+  <body>
+    <form class="add-bookmark-form">
+      <h2>Post a new Bookmark</h2>
+      <label for="add-bookmarkTitle">
+        Title:
+      </label>
+      <input type="text" id="add-bookmarkTitle" required />
+      <label for="add-bookmarkDescription">
+        Description:
+      </label>
+      <input type="text" id="add-bookmarkDescription" required />
+      <label for="add-bookmarkUrl">
+        URL:
+      </label>
+      <input type="text" id="add-bookmarkUrl" required />
+      <label for="add-bookmarkRating">
+        Rating:
+      </label>
+      <input type="number" id="add-bookmarkRating" required />
+      <button type="submit">
+        Add Bookmark
+      </button>
+    </form>
+
+    <form class="delete-bookmark-form">
+      <h2>Delete a Bookmark</h2>
+      <label for="delete-bookmarkId">
+        ID:
+      </label>
+      <input type="text" id="delete-bookmarkId" required />
+      <button type="submit">
+        Delete Bookmark
+      </button>
+    </form>
+
+    <form class="update-bookmark-form">
+      <h2>Update a Bookmark</h2>
+      <label for="update-bookmarkId">
+        ID:
+      </label>
+      <input type="text" id="update-bookmarkId" required />
+      <label for="update-bookmarkTitle">
+        Title:
+      </label>
+      <input type="text" id="update-bookmarkTitle" required />
+      <label for="update-bookmarkDescription">
+        Description:
+      </label>
+      <input type="text" id="update-bookmarkDescription" required />
+      <label for="update-bookmarkUrl">
+        URL:
+      </label>
+      <input type="text" id="update-bookmarkUrl" required />
+      <label for="update-bookmarkRating">
+        Rating:
+      </label>
+      <input type="number" id="update-bookmarkRating" required />
+      <button type="submit">
+        Update Bookmark
+      </button>
+    </form>
+
+    <form class="gbtitle-bookmark-form">
+      <h2>Get a Bookmark by title</h2>
+      <label for="gbtitle-bookmarkTitle">
+        Title:
+      </label>
+      <input type="text" id="gbtitle-bookmarkTitle" required />
+      <button type="submit">
+        Get Bookmark
+      </button>
+    </form>
+    <h1> Tus Bookmarks</h1>
+    <section class="results">
+
+    </section>
+    <script src="./js/index.js"></script>
+  </body>
+
+</html>

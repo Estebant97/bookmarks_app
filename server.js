@@ -4,11 +4,15 @@ const bodyParser = require( 'body-parser' );
 const morgan = require( 'morgan' );
 const uuid = require("uuid");
 const mongoose = require( 'mongoose' );
-const app = express();
 const jsonParser = bodyParser.json();
 const { Bookmarks } = require('./models/bookmarkModel');
 const authenticate = require("./middleware/authenticate");
+const cors = require( './middleware/cors' );
+const {DATABASE_URL, PORT} = require( './config' );
 // use
+const app = express();
+app.use( cors );
+app.use( express.static( "public" ) );
 app.use( morgan( 'dev' ) );
 app.use(authenticate);
 //define the structure of bookmarks
@@ -113,14 +117,17 @@ app.patch('/api/bookmark/:id', jsonParser, (req, res) => {
             return res.status( 500 ).end();
         });
 });
-app.listen(3000, () => {
-    new Promise( (resolve, reject ) => {
+app.listen( PORT, () => {
+    console.log( "This server is running on port 8080" );
+
+    new Promise( ( resolve, reject ) => {
+
         const settings = {
             useNewUrlParser: true, 
             useUnifiedTopology: true, 
             useCreateIndex: true
         };
-        mongoose.connect( 'mongodb://localhost/bookmarksdb', settings, ( err ) => {
+        mongoose.connect( DATABASE_URL, settings, ( err ) => {
             if( err ){
                 return reject( err );
             }
@@ -134,9 +141,9 @@ app.listen(3000, () => {
         console.log( err );
     });
 });
-// Base URL : http://localhost:3000/
-// GET endpoint : http://localhost:3000/api/bookmarks
-// GET endpoint : http://localhost:3000/api/bookmark?title=value
-// POST endpoint : http://localhost:3000/api/bookmarks and send in raw JSON the post
-// DELETE endpoint : http://localhost:3000/api/bookmark/id 
-// PATCH endpoint: http://localhost:3000/api/bookmark/id 
+// Base URL : http://localhost:8080/
+// GET endpoint : http://localhost:8080/api/bookmarks
+// GET endpoint : http://localhost:8080/api/bookmark?title=value
+// POST endpoint : http://localhost:8080/api/bookmarks and send in raw JSON the post
+// DELETE endpoint : http://localhost:8080/api/bookmark/id 
+// PATCH endpoint: http://localhost:8080/api/bookmark/id 
