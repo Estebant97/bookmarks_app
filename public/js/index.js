@@ -80,6 +80,9 @@ function updateBookmark(id, title, description, url, rating){
             throw new Error( response.statusText );
         })
         .then( responseJSON => {
+            if(responseJSON == ''){
+                results.innerHTML = `<div> No existe ningun bookmark con ese id </div>`;
+            }
             fetchBookmarks();
         })
         .catch( err => {
@@ -202,7 +205,11 @@ function watchDelBookmarkForm(){
             throw new Error( response.statusText );
         })
         .then( responseJSON => {
-            fetchBookmarks();
+            if(responseJSON == ''){
+                results.innerHTML = `<div> No existe ningun bookmark con ese titulo </div>`;
+            } else {
+                fetchBookmarks();
+            }
             bookmarkForm.reset()
         })
         .catch( err => {
