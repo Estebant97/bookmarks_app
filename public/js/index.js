@@ -2,11 +2,12 @@
 
 const API_TOKEN = '2abbf7c3-245b-404f-9473-ade729ed4653';
 
-const bookmarkCard = ({ _id, title, description, url }) => `
+const bookmarkCard = ({ _id, title, description, url, rating }) => `
   <div class="bookmarkCard">
     <h3>${title}</h3>
     <small>${_id}</small>
     <p>${description}</p>
+    <p>${rating}</p>
     <a href="${url}" target="_blank" rel="noopener">Go to page!</a>
   </div>
 `
@@ -31,7 +32,9 @@ function getBookmarkByTitle(title){
         })
         .then( responseJSON => {
             results.innerHTML = "";
-
+            if(responseJSON == ''){
+                results.innerHTML = `<div> No existe ningun bookmark con ese titulo </div>`;
+            }
             responseJSON.forEach( bookmark => {
               results.innerHTML += bookmarkCard(bookmark)
             } )
